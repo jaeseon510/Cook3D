@@ -1,49 +1,24 @@
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ContainerCounter : BaseCounter, IKitchenObjectParent
+public class ContainerCounter : BaseCounter
 {
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
-    [SerializeField] private Transform counterTopPoint; 
+    public event EventHandler OnPlayerGrabbedObject;
     
-    private KitchenObject kitchenObject;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
     
     public override void Interact(Player player)
     {
-        if (kitchenObject == null)
+        if (!player.HasKitchenObject())
         {
-            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
-        }
-        else
-        {
+            //또 못들게
+            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab); 
+            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
             
-            kitchenObject.SetKitchenObjectParent(player);
+            
+            OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+            
         }
-
-    }
-
-    public Transform GetKitchenObjectFollowTransform()
-    {
-        return counterTopPoint;
-    }
-
-    public void SetKitchenObject(KitchenObject kitchenObject)
-    {
-        this.kitchenObject = kitchenObject;
-    }
-
-    public KitchenObject GetKitchenObject()
-    {
-        return kitchenObject;
-    }
-
-    public void ClearKitchenObject()
-    {
-        kitchenObject = null;
-    }
-
-    public bool HasKitchenObject()
-    {
-        return kitchenObject != null;
     }
 }
