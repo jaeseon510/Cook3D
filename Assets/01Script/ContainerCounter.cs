@@ -1,26 +1,12 @@
 using UnityEngine;
 
-public class ClearCounter : BaseCounter
+public class ContainerCounter : BaseCounter, IKitchenObjectParent
 {
-    
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
     [SerializeField] private Transform counterTopPoint; 
     
     private KitchenObject kitchenObject;
-    /*
-    [SerializeField] private ClearCounter secondClearCounter;
-    [SerializeField] private bool testing;
-    private void Update()
-    {
-        if (testing && Input.GetKeyDown(KeyCode.T))
-        {
-            if (kitchenObject != null)
-            {
-                kitchenObject.SetKitchenObjectParent(secondClearCounter);
-            }
-        }
-    }
-    */
+    
     public override void Interact(Player player)
     {
         if (kitchenObject == null)
@@ -35,7 +21,7 @@ public class ClearCounter : BaseCounter
         }
 
     }
-    
+
     public Transform GetKitchenObjectFollowTransform()
     {
         return counterTopPoint;
