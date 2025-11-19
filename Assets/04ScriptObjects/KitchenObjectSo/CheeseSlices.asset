@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 909c8afc141e8984e95f0a5ed334f67e, type: 3}
-  m_Name: TomatoSlices
+  m_Name: CheeseSlices
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3812876574508226176, guid: 289447e17ab4e2d4bba85689994b3e35, type: 3}
-  spirte: {fileID: 21300000, guid: c9f08c3c1ae2a364aaeaa3712540b1d4, type: 3}
-  objectName: Tomato Slices
+  prefab: {fileID: 0}
+  spirte: {fileID: 0}
+  objectName: 
