@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951d2dd7d2b88764eb33485b10b1b1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoveCounter: {fileID: 4882172528989556990}
   stoveOnGameObject: {fileID: 8905763956752276033}
   particlesGameObject: {fileID: 3735969563981417928}
 --- !u!4 &4907543142491010957 stripped
