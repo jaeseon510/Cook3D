@@ -30,6 +30,17 @@ public class ClearCounter : BaseCounter
                         GetKitchenObject().DestorySelf();
                     }
                 }
+                else
+                {
+                    if (GetKitchenObject().TryGetPlate(out plateKitchenObject))
+                    {
+                        // Counter is holding a Plate
+                        if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO()))
+                        {
+                            player.GetKitchenObject().DestorySelf();
+                        }
+                    }
+                }
             }
             else
             {
