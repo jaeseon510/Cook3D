@@ -95,7 +95,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             SetSelectedCounted(null);
         }
-        Debug.Log(selectedCounter);
     }
 
     private void HandleMovement()
